@@ -1,0 +1,45 @@
+body{
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /*5 colunas com o tamanho que der, todas mesmo tamanho/proprorção*/
+    width: 100%; /*cria novas linhas*/
+    max-width: 800px;
+    margin: auto;
+    gap: 15px;
+}
+.card{
+    aspect-ratio: 3/4;
+    max-height: 180px;
+    width: 100%; /*100% do tamnho disponivel pelo grid*/
+    border-radius: 7px;
+    background-color: #333;
+    position: relative;
+    transition: all .4s ease;
+    transform-style: preserve-3d; /*comportamento de elemento 3d*/
+}
+
+.face{
+    width: 100%; height: 100%;
+    position: absolute; /*faz com que uma face fique na frente da outra, ocupem o mesmo lugar*/
+    background-position: center;
+    background-size: cover; 
+    border: 2px solid #39813a;
+    border-radius: 5px;
+}
+.front{
+    transform: rotateY(180deg);
+}
+.back{
+    background-image: url(images/back.png);
+    backface-visibility: hidden;/*a visibilidade da parte de trás da carta fica oculta -> extremely important*/
+}
+.reveal-card{
+    transform: rotateY(180deg);
+}
+.disabled-card{
+    opacity: 0.8;
+    filter: saturate(0.3);
+}
